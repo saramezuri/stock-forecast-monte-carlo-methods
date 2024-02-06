@@ -1,4 +1,4 @@
-# "Forecasting Hermès Stock Price Using Monte Carlo Methods and Time Series Analysis"
+# Forecasting Hermès Stock Price Using Monte Carlo Methods and Time Series Analysis
 ## Sara Mezuri
 
 ## Introduction
