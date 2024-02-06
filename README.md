@@ -32,7 +32,10 @@ In our data set, we notice an increase in the variance overtime, which makes it 
 Transformations such as logarithms can help to stabilize the variance of a time series. 
 But when it comes to the mean of time series, differencing can help stabilize the mean of a time series by removing changes in the level of a time series and therefore eliminating (or reducing) trend and seasonality.
 
-The differenced series is the change between consecutive observations in the original series and can be written as $$ X_t ' = X_{t+1} - X_t $$
+The differenced series is the change between consecutive observations in the original series and can be written as 
+
+$$ X_t ' = X_{t+1} - X_t $$
+
 where $X_t$ is a time series. 
 
 At times, the differenced data might not appear to be stationary, and it might be required to perform a second differencing to achieve a stationary series: 
@@ -101,7 +104,7 @@ where $Z_t$ represents a white noise $(0, \sigma^2)$.
 ![Autocorrelation and Partial Autocorrelation Functions]()
 
 Based on the graphs of the ACF and PACF, (Fig.5), we conclude that the PACF is exponentially decaying. As a result, we are dealing with an MA process and $p = 0$. Since there is a significant spice at $lag 1$ in the ACF, but none beyond $lag 1$, this is an $MA(1)$ process
-$$ X_t = Z_t + \theta_1 Z_{t-1} $$. 
+$ X_t = Z_t + \theta_1 Z_{t-1} $. 
 Once the process has been identified, we proceed to fit a model, using the "arima" function on R and the Maximum Likelihood Method. 
 
 The ARIMA (0, 2, 1)  model seems to be the best fit, considering that $AIC = -785.21$ is the smallest value. Additionally, $$Z_t\sim (0, 0.006274)$$, i.e normally distributed.
@@ -177,7 +180,9 @@ Furthermore, there are various other methods and measures that assist us to comp
 One of them would be the Sharpe Ratio, which is a measure of risk-adjusted return and it measures the excess return of an investment over the risk-free rate relative to its volatility. 
 
 The Sharpe Ratio is given by the formula 
-$$ Sharpe = \frac{R_p-R_f}{\sigma_p} $$ 
+
+$ Sharpe = \frac{R_p-R_f}{\sigma_p} $
+
 , where $R_p$ is the return of portofolio, $R_f$ is the risk-free rate and $\sigma_p$ is the standard deviation of the portofolio's return.
 
 In the case when the risk-free rate is taken to be $1$%, the Sharpe Ratio is $-0.3178729$. A negative Sharpe Ratio indicates that on average, the investment's return might be lower than the risk-free rate. A Sharpe ratio of $-0.3178729$ indicates that the simulated stock prices are expected to generate a return that is $0.3178729$ standard deviations below the risk-free rate over a $2$-year investment horizon. 
@@ -217,7 +222,7 @@ cat("The VaR for a two-years investment horizon and a 95% confidence level is:",
 
 ```
 
-The VaR (value at risk) of $18655.95$ implies a $5$% chance of the investment losing at least that amount over the specified investment horizon (in this case, two years) with $95$% confidence. For example, if you invest $\$ 100,000$ for two years, there is a $5$% chance that the investment will lose at least $ \$18655.95$.
+The VaR (value at risk) of $18655.95$ implies a $5$% chance of the investment losing at least that amount over the specified investment horizon (in this case, two years) with $95$% confidence. For example, if you invest $ 100,000 for two years, there is a $5$% chance that the investment will lose at least $18655.95.
 
 In conclusion, several elements are considered when measuring the risk of an investment, such as corporate performance, industry trends (in our case, fashion trends), market circumstances, regulatory environment, volatility, and so on. 
 
