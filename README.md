@@ -96,15 +96,21 @@ This conveys that the above is a second-order differenced model, hence $d = 2$, 
 The autocorrelation function (ACF) and partial autocorrelation function (PACF) plots are commonly used tools in time series analysis. The ACF plot shows the correlation between a time series and its lagged values at different lags, while the PACF plot shows the correlation between the time series and its lagged values after removing the effects of the intervening lags. 
 
 If the ACF plot decays exponentially, it suggests an auto-regressive $(AR(p))$ process.
+
 $$ X_t = \phi_1 X_{t-1} + \phi_2 X_{t-2} + \ldots + \phi_p X_{t-p} + Z_t $$
+
 While, if the PACF plot decays exponentially, this suggests a moving average $(MA(q))$ process.
+
 $$ X_t = Z_t + \theta_1 Z_{t-1} + \theta_2 Z_{t-2} + \ldots + \theta_q Z_{t-q} $$
+
 where $Z_t$ represents a white noise $(0, \sigma^2)$. 
 
 ![Autocorrelation and Partial Autocorrelation Functions]()
 
 Based on the graphs of the ACF and PACF, (Fig.5), we conclude that the PACF is exponentially decaying. As a result, we are dealing with an MA process and $p = 0$. Since there is a significant spice at $lag 1$ in the ACF, but none beyond $lag 1$, this is an $MA(1)$ process
-$ X_t = Z_t + \theta_1 Z_{t-1} $. 
+
+$$ X_t = Z_t + \theta_1 Z_{t-1} $$. 
+
 Once the process has been identified, we proceed to fit a model, using the "arima" function on R and the Maximum Likelihood Method. 
 
 The ARIMA (0, 2, 1)  model seems to be the best fit, considering that $AIC = -785.21$ is the smallest value. Additionally, $$Z_t\sim (0, 0.006274)$$, i.e normally distributed.
@@ -171,7 +177,7 @@ Then, we repeat the same process. (A comparison between different values of the 
 
 In conclusion, the distribution of expected annual returns informs us about the range of potential returns from an investment. We can learn about the risks and potential rewards of an investment by evaluating the shape and spread of the distribution.
 
-The plot (see Fig.7) gives us an idea of the range of the potential return expected from the investment. A skewed distribution toward larger returns may imply a higher-risk investment, whereas a more symmetric distribution may indicate a lower risk investment. 
+The plot (see Fig.7) gives us an idea of the range of the potential return expected from the investment. A skewed distribution toward larger returns may imply a higher-risk investment, whereas a more symmetric distribution may indicate a lower-risk investment. 
 
 The curve (Fig.7) seems to be somewhat wide and flat, suggesting a high degree of uncertainty in the expected returns. 
 
@@ -181,7 +187,7 @@ One of them would be the Sharpe Ratio, which is a measure of risk-adjusted retur
 
 The Sharpe Ratio is given by the formula 
 
-$ Sharpe = \frac{R_p-R_f}{\sigma_p} $
+$$ Sharpe = \frac{R_p-R_f}{\sigma_p} $$
 
 , where $R_p$ is the return of portofolio, $R_f$ is the risk-free rate and $\sigma_p$ is the standard deviation of the portofolio's return.
 
@@ -222,7 +228,7 @@ cat("The VaR for a two-years investment horizon and a 95% confidence level is:",
 
 ```
 
-The VaR (value at risk) of $18655.95$ implies a $5$% chance of the investment losing at least that amount over the specified investment horizon (in this case, two years) with $95$% confidence. For example, if you invest $ 100,000 for two years, there is a $5$% chance that the investment will lose at least $18655.95.
+The VaR (value at risk) of $18655.95$ implies a $5$% chance of the investment losing at least that amount over the specified investment horizon (in this case, two years) with $95$% confidence. For example, if you invest $100,000 for two years, there is a $5$% chance that the investment will lose at least $18655.95.
 
 In conclusion, several elements are considered when measuring the risk of an investment, such as corporate performance, industry trends (in our case, fashion trends), market circumstances, regulatory environment, volatility, and so on. 
 
