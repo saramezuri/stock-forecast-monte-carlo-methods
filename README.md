@@ -11,7 +11,7 @@ In this project, we analyze the historical stock prices of Hermès and use time 
 
 We will collect monthly stock prices from Investing.com. (https://www.investing.com/equities/Hermès-international-historical-data)
 
-![The data]()
+![The data](images/data.jpg)
 
 # Time Series Analysis
 
@@ -19,7 +19,7 @@ Based on the graph provided, we can conclude that the time series is non-station
 
 Firstly, we start by transforming the time series. We want to transform our data into a stationary time series (a time series with mean and variance independent of the time).
 
-![Hermès Stock Price Time Series]()
+![Hermès Stock Price Time Series](images/hermes-ts.jpeg)
 
 From the Time Series plot (fig. 1), we decide that we are dealing with an ARIMA(p, d, q) process. Our goal is to choose the best numerical values of p, d, and q. 
 
@@ -27,7 +27,7 @@ The next step is taking the logarithm of the time series. This is a common data 
 
 In our data set, we notice an increase in the variance overtime, which makes it difficult to forecast the series accurately. Taking the logarithm of the series can help to stabilize the variance, by compressing the range of values for large observations and expanding the range for small observations.
 
-![Hermès Stock Price Logged Time Series]()
+![Hermès Stock Price Logged Time Series](images/hermes-logged-ts.jpeg)
 
 Transformations such as logarithms can help to stabilize the variance of a time series. 
 But when it comes to the mean of time series, differencing can help stabilize the mean of a time series by removing changes in the level of a time series and therefore eliminating (or reducing) trend and seasonality.
@@ -89,7 +89,7 @@ The first-order differencing removes most of the trend and seasonality of a time
 
 This is why we take the second-order differencing, which gives us a better stationary time series. 
 
-![Differenced Time Series]()
+![Differenced Time Series](images/differenced-ts.jpeg)
 
 This conveys that the above is a second-order differenced model, hence $d = 2$, (see Fig.4). 
 
@@ -105,7 +105,7 @@ $$ X_t = Z_t + \theta_1 Z_{t-1} + \theta_2 Z_{t-2} + \ldots + \theta_q Z_{t-q} $
 
 where $Z_t$ represents a white noise $(0, \sigma^2)$. 
 
-![Autocorrelation and Partial Autocorrelation Functions]()
+![Autocorrelation and Partial Autocorrelation Functions](images/acf-pacf.jpeg)
 
 Based on the graphs of the ACF and PACF, (Fig.5), we conclude that the PACF is exponentially decaying. As a result, we are dealing with an MA process and $p = 0$. Since there is a significant spice at $lag 1$ in the ACF, but none beyond $lag 1$, this is an $MA(1)$ process
 
@@ -115,7 +115,7 @@ Once the process has been identified, we proceed to fit a model, using the "arim
 
 The ARIMA (0, 2, 1)  model seems to be the best fit, considering that $AIC = -785.21$ is the smallest value. Additionally, $$Z_t\sim (0, 0.006274)$$, i.e normally distributed.
 
-![Forecast of ARIMA(0, 2, 1) for 24 months]()
+![Forecast of ARIMA(0, 2, 1) for 24 months](images/forecast.jpeg)
 
 # Monte Carlo Simulation
 
@@ -170,7 +170,7 @@ for (i in 1:sim_iterations) {
 }
 
 ```
-![Expected Annual Return over 2 years with risk-free rate 1%]()
+![Expected Annual Return over 2 years with risk-free rate 1%](images/distribution.jpeg)
 
 We can choose a different scenario. For instance, we can take a new risk-free rate to be $5$ % instead.
 Then, we repeat the same process. (A comparison between different values of the risk-free rate is given below )
@@ -236,7 +236,7 @@ The past performance of the stock price, market trends, and volatility, as indic
 
 To summarize, an investment with a wide normal curve, a negative Sharpe ratio and a positive VaR suggests an investment that is risky and most likely does not generate a positive return that compensates for the taken risk. 
 
-![A Comparison of Expected Annual Returns over 2 years with Different Risk-Free Rates]
+![A Comparison of Expected Annual Returns over 2 years with Different Risk-Free Rates](images/comparison.jpeg)
 
 To summarize, an investment with a wide normal curve, a negative Sharpe ratio and a positive VaR suggests an investment that is risky and most likely does not generate a positive return that compensates for the taken risk. 
 
