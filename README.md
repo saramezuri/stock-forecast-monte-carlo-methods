@@ -240,8 +240,6 @@ To summarize, an investment with a wide normal curve, a negative Sharpe ratio an
 
 To summarize, an investment with a wide normal curve, a negative Sharpe ratio and a positive VaR suggests an investment that is risky and most likely does not generate a positive return that compensates for the taken risk. 
 
-\newpage
-
 # References
 
 1. Rizzo, Maria L. (2019). Statistical Computing with R, Second Edition
